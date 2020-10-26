@@ -15,15 +15,15 @@ using System.Windows.Forms;
 using System.IO;
 using Nikon;
 
-namespace demo_winforms_csharp
+namespace CameraView
 {
-    public partial class Form1 : Form
+    public partial class CameraForm : Form
     {
         private NikonManager manager;
         private NikonDevice device;
         private Timer liveViewTimer;
 
-        public Form1()
+        public CameraForm()
         {
             InitializeComponent();
 

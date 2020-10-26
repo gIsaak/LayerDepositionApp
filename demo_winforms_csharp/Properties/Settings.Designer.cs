@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace demo_winforms_csharp.Properties
+namespace CameraView.Properties
 {
 
 

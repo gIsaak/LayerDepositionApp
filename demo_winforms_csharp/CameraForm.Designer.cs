@@ -1,6 +1,6 @@
-namespace demo_winforms_csharp
+namespace CameraView
 {
-    partial class Form1
+    partial class CameraForm
     {
         /// <summary>
         /// Required designer variable.
@@ -48,7 +48,7 @@ namespace demo_winforms_csharp
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -60,7 +60,7 @@ namespace demo_winforms_csharp
             this.pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(204, 4);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(624, 536);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -79,7 +79,7 @@ namespace demo_winforms_csharp
             this.tableLayoutPanel2.Controls.Add(this.button_capture, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.button_toggleliveview, 0, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
@@ -105,7 +105,7 @@ namespace demo_winforms_csharp
             // 
             this.button_capture.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button_capture.Location = new System.Drawing.Point(4, 53);
-            this.button_capture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_capture.Margin = new System.Windows.Forms.Padding(4);
             this.button_capture.Name = "button_capture";
             this.button_capture.Size = new System.Drawing.Size(184, 41);
             this.button_capture.TabIndex = 1;
@@ -117,7 +117,7 @@ namespace demo_winforms_csharp
             // 
             this.button_toggleliveview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button_toggleliveview.Location = new System.Drawing.Point(4, 102);
-            this.button_toggleliveview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_toggleliveview.Margin = new System.Windows.Forms.Padding(4);
             this.button_toggleliveview.Name = "button_toggleliveview";
             this.button_toggleliveview.Size = new System.Drawing.Size(184, 41);
             this.button_toggleliveview.TabIndex = 2;
@@ -125,15 +125,15 @@ namespace demo_winforms_csharp
             this.button_toggleliveview.UseVisualStyleBackColor = true;
             this.button_toggleliveview.Click += new System.EventHandler(this.button_toggleliveview_Click);
             // 
-            // Form1
+            // CameraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 544);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form1";
-            this.Text = "Demo WinForms C#";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "CameraForm";
+            this.Text = "Camera View";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
