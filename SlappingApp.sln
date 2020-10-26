@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CU30_dotNet", "CU30_C#_x64\CU30_dotNet.csproj", "{A705F2BC-2779-4199-AE50-9D5757BD6648}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StageCU30", "CU30_C#_x64\StageCU30.csproj", "{A705F2BC-2779-4199-AE50-9D5757BD6648}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "demo_winforms_csharp", "demo_winforms_csharp\demo_winforms_csharp.csproj", "{8F6CC266-4B55-4889-A2D4-02A62EB9AED3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NikonCamera", "demo_winforms_csharp\NikonCamera.csproj", "{8F6CC266-4B55-4889-A2D4-02A62EB9AED3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nikoncswrapper", "nikoncswrapper\nikoncswrapper.csproj", "{AADE1DF5-4C46-4760-B72B-474D90336F5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NikonWrapper", "nikoncswrapper\NikonWrapper.csproj", "{AADE1DF5-4C46-4760-B72B-474D90336F5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Camera", "Camera", "{397140F1-C36C-4783-B8CF-E9B8851EF467}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8F6CC266-4B55-4889-A2D4-02A62EB9AED3} = {397140F1-C36C-4783-B8CF-E9B8851EF467}
+		{AADE1DF5-4C46-4760-B72B-474D90336F5B} = {397140F1-C36C-4783-B8CF-E9B8851EF467}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A1689A0-2F8C-424B-AA9C-6167C34CBB44}
