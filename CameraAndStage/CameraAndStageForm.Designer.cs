@@ -54,7 +54,11 @@
             this.ZStepsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.bottomTextBox = new System.Windows.Forms.TextBox();
             this.openButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cameraControlsPanel = new System.Windows.Forms.Panel();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.liveViewButton = new System.Windows.Forms.Button();
+            this.captureButton = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -67,7 +71,8 @@
             this.ZGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ZVelocityNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZStepsNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.cameraControlsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -76,7 +81,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -91,12 +96,14 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cameraControlsPanel, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.06493F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.93507F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(405, 610);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -110,7 +117,7 @@
             this.tableLayoutPanel3.Controls.Add(this.bottomTextBox, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.openButton, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 216);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 209);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 5;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -118,7 +125,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(399, 391);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(399, 377);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // XGroupBox
@@ -130,9 +137,9 @@
             this.XGroupBox.Controls.Add(this.XVelocityLabel);
             this.XGroupBox.Controls.Add(this.XVelocityNumericUpDown);
             this.XGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.XGroupBox.Location = new System.Drawing.Point(3, 42);
+            this.XGroupBox.Location = new System.Drawing.Point(3, 40);
             this.XGroupBox.Name = "XGroupBox";
-            this.XGroupBox.Size = new System.Drawing.Size(393, 103);
+            this.XGroupBox.Size = new System.Drawing.Size(393, 99);
             this.XGroupBox.TabIndex = 0;
             this.XGroupBox.TabStop = false;
             this.XGroupBox.Text = "X axis";
@@ -215,9 +222,9 @@
             this.YGroupBox.Controls.Add(this.YStepsNumericUpDown);
             this.YGroupBox.Controls.Add(this.YVelocityNumericUpDown);
             this.YGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.YGroupBox.Location = new System.Drawing.Point(3, 151);
+            this.YGroupBox.Location = new System.Drawing.Point(3, 145);
             this.YGroupBox.Name = "YGroupBox";
-            this.YGroupBox.Size = new System.Drawing.Size(393, 103);
+            this.YGroupBox.Size = new System.Drawing.Size(393, 99);
             this.YGroupBox.TabIndex = 1;
             this.YGroupBox.TabStop = false;
             this.YGroupBox.Text = "Y axis";
@@ -300,9 +307,9 @@
             this.ZGroupBox.Controls.Add(this.ZVelocityNumericUpDown);
             this.ZGroupBox.Controls.Add(this.ZStepsNumericUpDown);
             this.ZGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ZGroupBox.Location = new System.Drawing.Point(3, 260);
+            this.ZGroupBox.Location = new System.Drawing.Point(3, 250);
             this.ZGroupBox.Name = "ZGroupBox";
-            this.ZGroupBox.Size = new System.Drawing.Size(393, 103);
+            this.ZGroupBox.Size = new System.Drawing.Size(393, 99);
             this.ZGroupBox.TabIndex = 2;
             this.ZGroupBox.TabStop = false;
             this.ZGroupBox.Text = "Z axis";
@@ -380,7 +387,7 @@
             // 
             this.bottomTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.bottomTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bottomTextBox.Location = new System.Drawing.Point(3, 369);
+            this.bottomTextBox.Location = new System.Drawing.Point(3, 355);
             this.bottomTextBox.Name = "bottomTextBox";
             this.bottomTextBox.Size = new System.Drawing.Size(393, 27);
             this.bottomTextBox.TabIndex = 3;
@@ -396,16 +403,54 @@
             this.openButton.UseVisualStyleBackColor = true;
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
-            // pictureBox1
+            // cameraControlsPanel
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(414, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(679, 610);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.cameraControlsPanel.Controls.Add(this.nameLabel);
+            this.cameraControlsPanel.Controls.Add(this.liveViewButton);
+            this.cameraControlsPanel.Controls.Add(this.captureButton);
+            this.cameraControlsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cameraControlsPanel.Location = new System.Drawing.Point(3, 3);
+            this.cameraControlsPanel.Name = "cameraControlsPanel";
+            this.cameraControlsPanel.Size = new System.Drawing.Size(399, 200);
+            this.cameraControlsPanel.TabIndex = 1;
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(220, 20);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(82, 20);
+            this.nameLabel.TabIndex = 1;
+            this.nameLabel.Text = "No camera";
+            // 
+            // liveViewButton
+            // 
+            this.liveViewButton.Location = new System.Drawing.Point(115, 11);
+            this.liveViewButton.Name = "liveViewButton";
+            this.liveViewButton.Size = new System.Drawing.Size(86, 38);
+            this.liveViewButton.TabIndex = 0;
+            this.liveViewButton.Text = "Live View";
+            this.liveViewButton.UseVisualStyleBackColor = true;
+            // 
+            // captureButton
+            // 
+            this.captureButton.Location = new System.Drawing.Point(10, 11);
+            this.captureButton.Name = "captureButton";
+            this.captureButton.Size = new System.Drawing.Size(86, 38);
+            this.captureButton.TabIndex = 0;
+            this.captureButton.Text = "Capture";
+            this.captureButton.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox.Location = new System.Drawing.Point(414, 3);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(679, 610);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 1;
+            this.pictureBox.TabStop = false;
             // 
             // CameraAndStageForm
             // 
@@ -432,7 +477,9 @@
             this.ZGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ZVelocityNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZStepsNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.cameraControlsPanel.ResumeLayout(false);
+            this.cameraControlsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -441,7 +488,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox XGroupBox;
         private System.Windows.Forms.NumericUpDown XVelocityNumericUpDown;
@@ -467,6 +514,10 @@
         private System.Windows.Forms.NumericUpDown ZStepsNumericUpDown;
         private System.Windows.Forms.TextBox bottomTextBox;
         private System.Windows.Forms.Button openButton;
+        private System.Windows.Forms.Panel cameraControlsPanel;
+        private System.Windows.Forms.Button liveViewButton;
+        private System.Windows.Forms.Button captureButton;
+        private System.Windows.Forms.Label nameLabel;
     }
 }
 
