@@ -136,7 +136,7 @@ namespace CameraAndStage
             this.liveViewButton.Enabled = enabled;
         }
 
-        private void button_capture_Click(object sender, EventArgs e)
+        private void captureButton_Click(object sender, EventArgs e)
         {
             if (device == null)
             {
@@ -158,7 +158,7 @@ namespace CameraAndStage
             pictureBox.Image = null;
         }
 
-        private void button_toggleliveview_Click(object sender, EventArgs e)
+        private void liveViewButton_Click(object sender, EventArgs e)
         {
             if (device == null)
             {
@@ -181,7 +181,7 @@ namespace CameraAndStage
         // TODO - Put panel underneath clickButton
         private void openButton_Click(object sender, EventArgs e)
         {
-            string szResult = CU30obj.m_CU30Open(0).ToString(); //TODO - check index
+            string szResult = CU30obj.m_CU30Open(0).ToString();
 
             if (szResult.Length > 5)
             {
@@ -193,7 +193,6 @@ namespace CameraAndStage
             }
         }
 
-        //TODO - check direction of motion when pressing the buttons
         private void XPlusButton_Click(object sender, EventArgs e)
         {
             int vel = (int)this.XVelocityNumericUpDown.Value;
@@ -240,5 +239,6 @@ namespace CameraAndStage
         {
 
         }
+
     }
 }
