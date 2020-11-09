@@ -11,7 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NikonWrapper", "nikoncswrap
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Camera", "Camera", "{397140F1-C36C-4783-B8CF-E9B8851EF467}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraAndStage", "CameraAndStage\CameraAndStage.csproj", "{1A30E928-491F-4EBF-9DB9-4CB8E58D689E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CameraAndStage", "CameraAndStage\CameraAndStage.csproj", "{1A30E928-491F-4EBF-9DB9-4CB8E58D689E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drawing", "Drawing\Drawing.csproj", "{8744A806-320A-4464-BA9C-36C2E283E88E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{022CDAEC-F5F2-46D5-A573-357F1A462973}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +42,10 @@ Global
 		{1A30E928-491F-4EBF-9DB9-4CB8E58D689E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A30E928-491F-4EBF-9DB9-4CB8E58D689E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A30E928-491F-4EBF-9DB9-4CB8E58D689E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8744A806-320A-4464-BA9C-36C2E283E88E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8744A806-320A-4464-BA9C-36C2E283E88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8744A806-320A-4464-BA9C-36C2E283E88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8744A806-320A-4464-BA9C-36C2E283E88E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
