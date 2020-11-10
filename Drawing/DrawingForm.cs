@@ -23,6 +23,8 @@ namespace Drawing
         private Mat smoothedGrayFrame = new Mat();
         private Mat contour = new Mat();
         private Point clickedPoint;
+        private bool drawing = false;
+        private List<LineSegment2D> drawnLines = new List<LineSegment2D>();
 
         public DrawingForm()
         {
@@ -43,45 +45,26 @@ namespace Drawing
         {
             if (capture != null && capture.Ptr != IntPtr.Zero)
             {
-                #region display image and draw lines
                 capture.Retrieve(frame, 0);
+                
+                #region Contour
                 double cannyThreshold = 200;//150.0;
                 double cannyThresholdLinking = 100;//75.0;
-
                 CvInvoke.CvtColor(frame, grayFrame, ColorConversion.Bgr2Gray);
                 CvInvoke.PyrDown(grayFrame, smallGrayFrame);
                 CvInvoke.PyrUp(smallGrayFrame, smoothedGrayFrame);
-                CvInvoke.Canny(smoothedGrayFrame, contour, cannyThreshold, cannyThresholdLinking);
-
-                LineSegment2D[] lines = CvInvoke.HoughLinesP(
-                    contour,
-                    1, //Distance resolution in pixel-related units
-                    Math.PI / 180.0, //Angle resolution measured in radians.
-                    70, //threshold
-                    10, //min Line width
-                    250); //gap between lines
-
-                //foreach (LineSegment2D line in lines)
-                //    CvInvoke.Line(frame, line.P1, line.P2, new Bgr(Color.Green).MCvScalar, 2);
+                CvInvoke.Canny(grayFrame, contour, cannyThreshold, cannyThresholdLinking);
+                #endregion
 
                 imageBox.Image = frame;
-                #endregion
-                #region draw line closest to clicked point
-                if (this.clickedPoint.IsEmpty == false)
+                // Draw line
+                if (this.drawing)
                 {
-                    var pointLineDist = new List<double>();
-                    foreach (LineSegment2D line in lines)
-                        pointLineDist.Add(GetPointLineDistance(line, clickedPoint));
-                    var maxIndex = pointLineDist.IndexOf(pointLineDist.Max());
-                    CvInvoke.Line(frame, lines[maxIndex].P1, lines[maxIndex].P2, new Bgr(Color.Red).MCvScalar, 2);
-
-                    // draw selected point too
+                    foreach (LineSegment2D line in this.drawnLines)
+                        CvInvoke.Line(frame, line.P1, line.P2, new Bgr(Color.Green).MCvScalar, 2);
                     CvInvoke.Circle(frame, clickedPoint, 5, new Bgr(Color.Red).MCvScalar);
-                    // why isnt it in the right place?
                 }
-                // TODO - doesnt always get closest line though :(
-                #endregion
-
+                
             }
         }
 
@@ -106,8 +89,9 @@ namespace Drawing
 
         private void imageBox_Click(object sender, EventArgs e)
         {
-            MouseEventArgs pointClick = (MouseEventArgs)e;
-            this.clickedPoint = pointClick.Location;
+            MouseEventArgs me = (MouseEventArgs)e;
+            this.clickedPoint = me.Location;
+            // TODO - WTF is wrong with this
         }
 
         private double GetPointLineDistance(LineSegment2D line, Point point)
@@ -119,5 +103,32 @@ namespace Drawing
             double den = Math.Sqrt((y2 - y1)*(y2 - y1) + (x2 - x1)*(x2 - x1));
             return num / den;
         }
+
+        private void drawButton_Click(object sender, EventArgs e)
+        {
+            this.drawing = true;
+            if (this.clickedPoint.IsEmpty == false)
+            {
+                LineSegment2D[] lines = CvInvoke.HoughLinesP(
+                    contour,
+                    1, //Distance resolution in pixel-related units
+                    Math.PI / 180.0, //Angle resolution measured in radians.
+                    70, //threshold
+                    10, //min Line width
+                    250); //gap between lines
+
+                var pointLineDist = new List<double>();
+                foreach (LineSegment2D line in lines)
+                    pointLineDist.Add(GetPointLineDistance(line, clickedPoint));
+                var maxIndex = pointLineDist.IndexOf(pointLineDist.Max());
+                this.drawnLines.Add(lines[maxIndex]);
+
+            }
+            else
+            {
+                MessageBox.Show("Click on image to select line");
+            }
+        }
+
     }
 }
