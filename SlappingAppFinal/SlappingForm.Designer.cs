@@ -60,8 +60,8 @@
             this.fiberControlTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.jogLabel = new System.Windows.Forms.Label();
             this.jogSizeTextBox = new System.Windows.Forms.TextBox();
-            this.upButton = new System.Windows.Forms.Button();
             this.downButton = new System.Windows.Forms.Button();
+            this.upButton = new System.Windows.Forms.Button();
             this.cameraGroupBox = new System.Windows.Forms.GroupBox();
             this.cameraTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.liveViewButton = new System.Windows.Forms.Button();
@@ -564,18 +564,6 @@
             this.jogSizeTextBox.Text = "0.001";
             this.jogSizeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // upButton
-            // 
-            this.upButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.upButton.Location = new System.Drawing.Point(205, 3);
-            this.upButton.MaximumSize = new System.Drawing.Size(60, 60);
-            this.upButton.Name = "upButton";
-            this.fiberControlTableLayoutPanel.SetRowSpan(this.upButton, 2);
-            this.upButton.Size = new System.Drawing.Size(60, 60);
-            this.upButton.TabIndex = 2;
-            this.upButton.Text = "Up";
-            this.upButton.UseVisualStyleBackColor = true;
-            // 
             // downButton
             // 
             this.downButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -587,6 +575,18 @@
             this.downButton.TabIndex = 3;
             this.downButton.Text = "Down";
             this.downButton.UseVisualStyleBackColor = true;
+            // 
+            // upButton
+            // 
+            this.upButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upButton.Location = new System.Drawing.Point(205, 3);
+            this.upButton.MaximumSize = new System.Drawing.Size(60, 60);
+            this.upButton.Name = "upButton";
+            this.fiberControlTableLayoutPanel.SetRowSpan(this.upButton, 2);
+            this.upButton.Size = new System.Drawing.Size(60, 60);
+            this.upButton.TabIndex = 2;
+            this.upButton.Text = "Up";
+            this.upButton.UseVisualStyleBackColor = true;
             // 
             // cameraGroupBox
             // 
@@ -626,6 +626,7 @@
             this.liveViewButton.TabIndex = 0;
             this.liveViewButton.Text = "Live View";
             this.liveViewButton.UseVisualStyleBackColor = true;
+            this.liveViewButton.Click += new System.EventHandler(this.liveViewButton_Click);
             // 
             // captureButton
             // 
@@ -636,6 +637,7 @@
             this.captureButton.TabIndex = 1;
             this.captureButton.Text = "Capture";
             this.captureButton.UseVisualStyleBackColor = true;
+            this.captureButton.Click += new System.EventHandler(this.captureButton_Click);
             // 
             // cameraLabel
             // 
@@ -668,7 +670,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "SlappingForm";
             this.Text = "Slapping Form";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.SlappingForm_Load);
             this.splitControlsImageContainer.Panel1.ResumeLayout(false);
             this.splitControlsImageContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitControlsImageContainer)).EndInit();

@@ -79,5 +79,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CU30_C#_x64\StageCU30.csproj">
+      <Project>{a705f2bc-2779-4199-ae50-9d5757bd6648}</Project>
+      <Name>StageCU30</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\nikoncswrapper\NikonWrapper.csproj">
+      <Project>{aade1df5-4c46-4760-b72b-474d90336f5b}</Project>
+      <Name>NikonWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
