@@ -22,7 +22,7 @@ The SKD contains the following files:
 - Type0009.md3
 - NkdPTP.dll
 
-These need to be present in the same folder as the Project executable 
+These need to be present in the Project Folder, i.e. th same folder as the Project executable 
 (.exe with the same name as trhe project),
 usually located in the /bin folder (or one of its subdirectories)
 
@@ -39,8 +39,9 @@ In order to use the controller within a Windows Form the following are required:
 - CU30.dll
 - CU30Interface.cs
   
-CU30.dll needs to be present in the same folder as the Project executable.
-CU30Interface.cs needs to be referenced (or its source code pasted into the target project)
+CU30.dll needs to be present in the Project Folder.
+
+CU30Interface.cs needs to be added to Project References (or its code pasted into the target project).
 
 Both can be found at
 
@@ -51,7 +52,25 @@ More documentation is provided at
     C:\Program Files\MechonicsStages\Software Controller CU30
 
 ### Fiber motor controller (Thorlabs KDC101 DC Servo Drive)
-Installation of Thorlabs Kinesis software is required. 
+Installation of Thorlabs Kinesis software is required.
+
+Documentation, code examples and all the required .dll's are provided under 
+
+    C:\Program Files\Thorlabs\Kinesis
+
+Not all .dll's are required, 
+only the following are neeeded in the Project Folder
+
+| Filename                                     | Reference     |
+| :------------------------------------------- | :-----------: |
+|  Thorlabs.MotionControl.DeviceManager.dll    |    &#x2610;   |
+| Thorlabs.MotionControl.DeviceManagerCLI.dll  |    &#x2611;   |
+| Thorlabs.MotionControl.GenericMotorCLI.dll   |    &#x2611;   |
+| Thorlabs.MotionControl.KCube.DCServo.dll     |    &#x2610;   |
+| ThorLabs.MotionControl.KCube.DCServoCLI.dll  |    &#x2611;   |
+| Thorlabs.MotionControl.PrivateInternal.dll   |    &#x2610;   |
+| Thorlabs.MotionControl.Tools.Common.dll      |    &#x2611;   |
+| Thorlabs.MotionControl.Tools.Logging.dll     |    &#x2611;   |
 
 
 
