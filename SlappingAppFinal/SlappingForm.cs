@@ -218,8 +218,8 @@ namespace SlappingAppFinal
 
         private void zPlusButton_Click(object sender, EventArgs e)
         {
-            int vel = (int)this.ZVelocityNumericUpDown.Value;
-            int steps = (int)this.ZStepsNumericUpDown.Value;
+            int vel = (int)this.zVelocityNumericUpDown.Value;
+            int steps = (int)this.zStepsNumericUpDown.Value;
             CU30obj.m_CU30Step(3, vel, steps);
         }
 

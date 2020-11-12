@@ -38,7 +38,6 @@
             this.xStepsLabel = new System.Windows.Forms.Label();
             this.xVelocityNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.xPlusButton = new System.Windows.Forms.Button();
-            this.stageLabel = new System.Windows.Forms.Label();
             this.xMinusButton = new System.Windows.Forms.Button();
             this.xStepsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.yGroupBox = new System.Windows.Forms.GroupBox();
@@ -57,6 +56,7 @@
             this.zPlusButton = new System.Windows.Forms.Button();
             this.zMinusButton = new System.Windows.Forms.Button();
             this.zStepsNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.stageLabel = new System.Windows.Forms.Label();
             this.fiberControlGroupBox = new System.Windows.Forms.GroupBox();
             this.fiberControlTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.jogLabel = new System.Windows.Forms.Label();
@@ -251,17 +251,6 @@
             this.xPlusButton.Text = "+X\r\n";
             this.xPlusButton.UseVisualStyleBackColor = true;
             this.xPlusButton.Click += new System.EventHandler(this.xPlusButton_Click);
-            // 
-            // stageLabel
-            // 
-            this.stageLabel.AutoSize = true;
-            this.stageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stageLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stageLabel.Location = new System.Drawing.Point(3, 0);
-            this.stageLabel.Name = "stageLabel";
-            this.stageLabel.Size = new System.Drawing.Size(331, 37);
-            this.stageLabel.TabIndex = 4;
-            this.stageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // xMinusButton
             // 
@@ -528,6 +517,17 @@
             this.zStepsNumericUpDown.Name = "zStepsNumericUpDown";
             this.zStepsNumericUpDown.Size = new System.Drawing.Size(91, 25);
             this.zStepsNumericUpDown.TabIndex = 3;
+            // 
+            // stageLabel
+            // 
+            this.stageLabel.AutoSize = true;
+            this.stageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stageLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stageLabel.Location = new System.Drawing.Point(3, 0);
+            this.stageLabel.Name = "stageLabel";
+            this.stageLabel.Size = new System.Drawing.Size(331, 37);
+            this.stageLabel.TabIndex = 4;
+            this.stageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // fiberControlGroupBox
             // 
