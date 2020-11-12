@@ -31,7 +31,7 @@ namespace SlappingAppFinal
         {
             #region Camera initialization
             // Disable buttons
-            ToggleButtons(false);
+            ToggleCameraButtons(false);
             // Initialize live view timer
             liveViewTimer = new Timer();
             liveViewTimer.Tick += new EventHandler(liveViewTimer_Tick);
@@ -41,7 +41,10 @@ namespace SlappingAppFinal
             manager.DeviceAdded += new DeviceAddedDelegate(manager_DeviceAdded);
             manager.DeviceRemoved += new DeviceRemovedDelegate(manager_DeviceRemoved);
             #endregion
+
             #region Stage initialization
+            // Disable buttons
+            ToggleStageButtons(false);
             // Check connected hardware
             string szResult = CU30obj.m_CU30Open(0).ToString();
             if (szResult.Length > 5)
@@ -50,20 +53,14 @@ namespace SlappingAppFinal
             }
             else
             {
-                this.stageLabel.Text = "connected";
+                this.stageLabel.Text = "Connected";
+                ToggleStageButtons(true);
+
             }
             #endregion
         }
 
-        private void xPlusButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void zMinusButton_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         #region Camera controls
         private void liveViewButton_Click(object sender, EventArgs e)
@@ -90,7 +87,7 @@ namespace SlappingAppFinal
             {
                 return;
             }
-            ToggleButtons(false);
+            ToggleCameraButtons(false);
             try
             {
                 device.Capture();
@@ -98,7 +95,7 @@ namespace SlappingAppFinal
             catch (NikonException ex)
             {
                 MessageBox.Show(ex.Message);
-                ToggleButtons(true);
+                ToggleCameraButtons(true);
             }
             pictureBox.Image = null;
         }
@@ -123,7 +120,7 @@ namespace SlappingAppFinal
             // Set the device name
             cameraLabel.Text = device.Name;
             // Enable buttons
-            ToggleButtons(true);
+            ToggleCameraButtons(true);
             // Hook up device capture events
             device.ImageReady += new ImageReadyDelegate(device_ImageReady);
             device.CaptureComplete += new CaptureCompleteDelegate(device_CaptureComplete);
@@ -137,7 +134,7 @@ namespace SlappingAppFinal
             // Clear device name
             cameraLabel.Text = "No Camera";
             // Disable buttons
-            ToggleButtons(false);
+            ToggleCameraButtons(false);
             // Clear live view picture
             pictureBox.Image = null;
         }
@@ -180,14 +177,78 @@ namespace SlappingAppFinal
         void device_CaptureComplete(NikonDevice sender, int data)
         {
             // Re-enable buttons when the capture completes
-            ToggleButtons(true);
+            ToggleCameraButtons(true);
         }
 
-        void ToggleButtons(bool enabled)
+        void ToggleCameraButtons(bool enabled)
         {
             this.captureButton.Enabled = enabled;
             this.liveViewButton.Enabled = enabled;
         }
         #endregion
+
+        #region Stage controls
+        private void xPlusButton_Click(object sender, EventArgs e)
+        {
+            int vel = (int)this.xVelocityNumericUpDown.Value;
+            int steps = (int)this.xStepsNumericUpDown.Value;
+            CU30obj.m_CU30Step(1, vel, steps);
+        }
+
+        private void xMinusButton_Click(object sender, EventArgs e)
+        {
+            int vel = (int)this.xVelocityNumericUpDown.Value;
+            int steps = (int)this.xStepsNumericUpDown.Value;
+            CU30obj.m_CU30Step(1, -vel, steps);
+        }
+
+        private void yPlusButton_Click(object sender, EventArgs e)
+        {
+            int vel = (int)this.yVelocityNumericUpDown.Value;
+            int steps = (int)this.yStepsNumericUpDown.Value;
+            CU30obj.m_CU30Step(2, vel, steps);
+        }
+
+        private void yMinusButton_Click(object sender, EventArgs e)
+        {
+            int vel = (int)this.yVelocityNumericUpDown.Value;
+            int steps = (int)this.yStepsNumericUpDown.Value;
+            CU30obj.m_CU30Step(2, -vel, steps);
+        }
+
+        private void zPlusButton_Click(object sender, EventArgs e)
+        {
+            int vel = (int)this.ZVelocityNumericUpDown.Value;
+            int steps = (int)this.ZStepsNumericUpDown.Value;
+            CU30obj.m_CU30Step(3, vel, steps);
+        }
+
+        private void zMinusButton_Click(object sender, EventArgs e)
+        {
+            int vel = (int)this.zVelocityNumericUpDown.Value;
+            int steps = (int)this.zStepsNumericUpDown.Value;
+            CU30obj.m_CU30Step(3, -vel, steps);
+        }
+        #endregion
+
+        #region Stage control functions
+        void ToggleStageButtons(bool enabled)
+        {
+            this.xPlusButton.Enabled = enabled;
+            this.xMinusButton.Enabled = enabled;
+            this.yPlusButton.Enabled = enabled;
+            this.yMinusButton.Enabled = enabled;
+            this.zPlusButton.Enabled = enabled;
+            this.zMinusButton.Enabled = enabled;
+            this.xVelocityNumericUpDown.Enabled = enabled;
+            this.xStepsNumericUpDown.Enabled = enabled;
+            this.yVelocityNumericUpDown.Enabled = enabled;
+            this.yStepsNumericUpDown.Enabled = enabled;
+            this.zVelocityNumericUpDown.Enabled = enabled;
+            this.zStepsNumericUpDown.Enabled = enabled;
+        }
+
+        #endregion
+
     }
 }

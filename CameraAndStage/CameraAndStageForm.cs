@@ -178,7 +178,6 @@ namespace CameraAndStage
         }
 
         // Stage controls
-        // TODO - Put panel underneath clickButton
         private void openButton_Click(object sender, EventArgs e)
         {
             string szResult = CU30obj.m_CU30Open(0).ToString();
