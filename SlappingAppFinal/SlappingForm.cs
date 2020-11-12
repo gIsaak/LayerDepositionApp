@@ -25,7 +25,10 @@ namespace SlappingAppFinal
         public SlappingForm()
         {
             InitializeComponent();
+        }
 
+        private void SlappingForm_Load(object sender, EventArgs e)
+        {
             #region Camera initialization
             // Disable buttons
             ToggleButtons(false);
@@ -38,11 +41,18 @@ namespace SlappingAppFinal
             manager.DeviceAdded += new DeviceAddedDelegate(manager_DeviceAdded);
             manager.DeviceRemoved += new DeviceRemovedDelegate(manager_DeviceRemoved);
             #endregion
-        }
-
-        private void SlappingForm_Load(object sender, EventArgs e)
-        {
-
+            #region Stage initialization
+            // Check connected hardware
+            string szResult = CU30obj.m_CU30Open(0).ToString();
+            if (szResult.Length > 5)
+            {
+                this.stageLabel.Text = szResult;
+            }
+            else
+            {
+                this.stageLabel.Text = "connected";
+            }
+            #endregion
         }
 
         private void xPlusButton_Click(object sender, EventArgs e)

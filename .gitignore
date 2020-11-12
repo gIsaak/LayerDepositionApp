@@ -338,3 +338,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Add back Dll's and other external component files
+![Bb]in/**/CU30.dll
+![Bb]in/**/Type0009.md3
+![Bb]in/**/NkdPTP.dll
