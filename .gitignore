@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Dll's and other external component files
+![Bb]in/**/CU30.dll
+![Bb]in/**/Type0009.md3
+![Bb]in/**/NkdPTP.dll
+
+
 # User-specific files
 *.rsuser
 *.suo
