@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CU30Interface;
 using Nikon;
+using Thorlabs.MotionControl.DeviceManagerCLI;
+using Thorlabs.MotionControl.GenericMotorCLI;
+using Thorlabs.MotionControl.KCube.DCServoCLI;
 
 
 namespace SlappingAppFinal
@@ -20,7 +23,10 @@ namespace SlappingAppFinal
         private NikonManager manager;
         private NikonDevice device;
         private Timer liveViewTimer;
+        // Stage
         CU30 CU30obj = new CU30();
+        // Fiber
+        private KCubeDCServo _kCubeDCServoMotor = null;
 
         public SlappingForm()
         {
@@ -58,9 +64,43 @@ namespace SlappingAppFinal
 
             }
             #endregion
+
+            #region Fiber initialization
+            // TODO - disable buttons when not connected
+            if (_kCubeDCServoMotor != null)
+            {
+                MessageBox.Show("Device already connected");
+                return;
+            }
+            // Serial number of hardware component in use 
+            const string serialNumber = "27505289";
+            try
+            {
+                // Instructs the DeviceManager to build and maintain the list of
+                // devices connected.
+                DeviceManagerCLI.BuildDeviceList();
+                _kCubeDCServoMotor = KCubeDCServo.CreateKCubeDCServo(serialNumber);
+                // Establish a connection with the device.
+                _kCubeDCServoMotor.Connect(serialNumber);
+                // Wait for the device settings to initialize. We ask the device to
+                // throw an exception if this takes more than 5000ms (5s) to complete.
+                _kCubeDCServoMotor.WaitForSettingsInitialized(5000);
+                // Initialize the DeviceUnitConverter object required for real world
+                // unit parameters.
+                _kCubeDCServoMotor.LoadMotorConfiguration(_kCubeDCServoMotor.DeviceID, DeviceConfiguration.DeviceSettingsUseOptionType.UseFileSettings);
+                // This starts polling the device at intervals of 250ms (0.25s).
+                _kCubeDCServoMotor.StartPolling(250);
+                // We are now able to enable the device for commands.
+                _kCubeDCServoMotor.EnableDevice();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to connect to device\n" + ex);
+            }
+            #endregion
         }
 
-        
+
 
         #region Camera controls
         private void liveViewButton_Click(object sender, EventArgs e)
@@ -248,6 +288,75 @@ namespace SlappingAppFinal
             this.zStepsNumericUpDown.Enabled = enabled;
         }
 
+        #endregion
+
+        #region Fiber controls
+        private void upButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Set jog size
+                jogSizeStepFromTextBox(jogSizeTextBox.Text);
+                // Move jog up
+                try
+                {
+                    // Throw exeption if it takes more than 5s to jog
+                    _kCubeDCServoMotor.MoveJog(MotorDirection.Backward, 5000);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to move jog" + ex);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to set jog step size" + ex);
+                return;
+            }
+        }
+
+        private void downButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Set jog size
+                jogSizeStepFromTextBox(jogSizeTextBox.Text);
+                // Move jog up
+                try
+                {
+                    // Throw exeption if it takes more than 5s to jog
+                    _kCubeDCServoMotor.MoveJog(MotorDirection.Forward, 5000);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to move jog" + ex);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to set jog step size" + ex);
+                return;
+            }
+        }
+        #endregion
+
+        #region Fiber control functions
+        private void jogSizeStepFromTextBox(string jogSizeText)
+        {
+            decimal step;
+            if (Decimal.TryParse(jogSizeText, out step))
+            {
+                _kCubeDCServoMotor.SetJogStepSize(step);
+            }
+            else 
+            {
+                MessageBox.Show("Failed to set jog step size");
+            }
+        }
         #endregion
 
     }
