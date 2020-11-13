@@ -317,6 +317,7 @@ namespace SlappingAppFinal
                 _kCubeDCServoMotor.EnableDevice();
                 // Enable buttons and contros
                 ToggleFiberButtons(true);
+                this.fiberLabel.Text = "Connected";
                 return;
             }
             catch (Exception ex)
