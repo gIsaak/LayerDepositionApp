@@ -66,41 +66,14 @@ namespace SlappingAppFinal
             #endregion
 
             #region Fiber initialization
-            // TODO - disable buttons when not connected
-            if (_kCubeDCServoMotor != null)
-            {
-                MessageBox.Show("Device already connected");
-                return;
-            }
             // Serial number of hardware component in use 
             const string serialNumber = "27505289";
-            try
-            {
-                // Instructs the DeviceManager to build and maintain the list of
-                // devices connected.
-                DeviceManagerCLI.BuildDeviceList();
-                _kCubeDCServoMotor = KCubeDCServo.CreateKCubeDCServo(serialNumber);
-                // Establish a connection with the device.
-                _kCubeDCServoMotor.Connect(serialNumber);
-                // Wait for the device settings to initialize. We ask the device to
-                // throw an exception if this takes more than 5000ms (5s) to complete.
-                _kCubeDCServoMotor.WaitForSettingsInitialized(5000);
-                // Initialize the DeviceUnitConverter object required for real world
-                // unit parameters.
-                _kCubeDCServoMotor.LoadMotorConfiguration(_kCubeDCServoMotor.DeviceID, DeviceConfiguration.DeviceSettingsUseOptionType.UseFileSettings);
-                // This starts polling the device at intervals of 250ms (0.25s).
-                _kCubeDCServoMotor.StartPolling(250);
-                // We are now able to enable the device for commands.
-                _kCubeDCServoMotor.EnableDevice();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Unable to connect to device\n" + ex);
-            }
+            // Disable buttons
+            ToggleFiberButtons(false);
+            // Initialize fiber controller
+            initializeFiber(serialNumber);
             #endregion
         }
-
-
 
         #region Camera controls
         private void liveViewButton_Click(object sender, EventArgs e)
@@ -290,6 +263,78 @@ namespace SlappingAppFinal
 
         #endregion
 
+        #region Fiber control functions
+        private void jogSizeStepFromTextBox(string jogSizeText)
+        {
+            decimal step;
+            if (Decimal.TryParse(jogSizeText, out step))
+            {
+                _kCubeDCServoMotor.SetJogStepSize(step);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Failed to set fiber jog step size");
+                return;
+            }
+        }
+
+        private void initializeFiber(string serial)
+        {
+            try
+            {
+                // Instructs the DeviceManager to build and maintain the list of devices connected.
+                DeviceManagerCLI.BuildDeviceList();
+            }
+            catch (Exception)
+            {
+                this.fiberLabel.Text = "Not connected";
+                return;
+            }
+
+            try
+            {
+                _kCubeDCServoMotor = KCubeDCServo.CreateKCubeDCServo(serial);
+                // Establish a connection with the device.
+                _kCubeDCServoMotor.Connect(serial);
+            }
+            catch (Exception)
+            {
+                this.fiberLabel.Text = "Unable to connect";
+                return;
+            }
+
+            try
+            {
+                // Wait for the device settings to initialize. We ask the device to
+                // throw an exception if this takes more than 5000ms (5s) to complete.
+                _kCubeDCServoMotor.WaitForSettingsInitialized(5000);
+                // Initialize the DeviceUnitConverter object required for real world unit parameters.
+                _kCubeDCServoMotor.LoadMotorConfiguration(_kCubeDCServoMotor.DeviceID, DeviceConfiguration.DeviceSettingsUseOptionType.UseFileSettings);
+                // This starts polling the device at intervals of 250ms (0.25s).
+                _kCubeDCServoMotor.StartPolling(250);
+                // We are now able to enable the device for commands.
+                _kCubeDCServoMotor.EnableDevice();
+                // Enable buttons and contros
+                ToggleFiberButtons(true);
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to initialize fiber controller\n" + ex);
+                return;
+            }
+        }
+
+        private void ToggleFiberButtons(bool enable)
+        {
+            this.jogSizeTextBox.Enabled = enable;
+            this.upButton.Enabled = enable;
+            this.downButton.Enabled = enable;
+            return;
+        }
+        #endregion
+
         #region Fiber controls
         private void upButton_Click(object sender, EventArgs e)
         {
@@ -343,21 +388,5 @@ namespace SlappingAppFinal
             }
         }
         #endregion
-
-        #region Fiber control functions
-        private void jogSizeStepFromTextBox(string jogSizeText)
-        {
-            decimal step;
-            if (Decimal.TryParse(jogSizeText, out step))
-            {
-                _kCubeDCServoMotor.SetJogStepSize(step);
-            }
-            else 
-            {
-                MessageBox.Show("Failed to set jog step size");
-            }
-        }
-        #endregion
-
     }
 }
