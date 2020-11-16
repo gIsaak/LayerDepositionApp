@@ -60,17 +60,16 @@
             this.fiberControlGroupBox = new System.Windows.Forms.GroupBox();
             this.fiberControlTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.jogLabel = new System.Windows.Forms.Label();
-            this.jogSizeTextBox = new System.Windows.Forms.TextBox();
             this.upButton = new System.Windows.Forms.Button();
             this.downButton = new System.Windows.Forms.Button();
             this.fiberLabel = new System.Windows.Forms.Label();
+            this.jogSizeNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.cameraGroupBox = new System.Windows.Forms.GroupBox();
             this.cameraTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.liveViewButton = new System.Windows.Forms.Button();
             this.captureButton = new System.Windows.Forms.Button();
             this.cameraLabel = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.setButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitControlsImageContainer)).BeginInit();
             this.splitControlsImageContainer.Panel1.SuspendLayout();
             this.splitControlsImageContainer.Panel2.SuspendLayout();
@@ -92,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.zStepsNumericUpDown)).BeginInit();
             this.fiberControlGroupBox.SuspendLayout();
             this.fiberControlTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jogSizeNumericUpDown)).BeginInit();
             this.cameraGroupBox.SuspendLayout();
             this.cameraTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -152,14 +152,14 @@
             this.stageTableLayoutPanel.Controls.Add(this.zGroupBox, 0, 3);
             this.stageTableLayoutPanel.Controls.Add(this.stageLabel, 0, 0);
             this.stageTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stageTableLayoutPanel.Location = new System.Drawing.Point(3, 21);
+            this.stageTableLayoutPanel.Location = new System.Drawing.Point(3, 17);
             this.stageTableLayoutPanel.Name = "stageTableLayoutPanel";
             this.stageTableLayoutPanel.RowCount = 4;
             this.stageTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
             this.stageTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31F));
             this.stageTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31F));
             this.stageTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31F));
-            this.stageTableLayoutPanel.Size = new System.Drawing.Size(337, 539);
+            this.stageTableLayoutPanel.Size = new System.Drawing.Size(337, 543);
             this.stageTableLayoutPanel.TabIndex = 0;
             // 
             // xGroupBox
@@ -167,9 +167,9 @@
             this.xGroupBox.Controls.Add(this.xTableLayoutPanel);
             this.xGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xGroupBox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xGroupBox.Location = new System.Drawing.Point(3, 40);
+            this.xGroupBox.Location = new System.Drawing.Point(3, 41);
             this.xGroupBox.Name = "xGroupBox";
-            this.xGroupBox.Size = new System.Drawing.Size(331, 161);
+            this.xGroupBox.Size = new System.Drawing.Size(331, 162);
             this.xGroupBox.TabIndex = 0;
             this.xGroupBox.TabStop = false;
             this.xGroupBox.Text = "X axis";
@@ -188,13 +188,13 @@
             this.xTableLayoutPanel.Controls.Add(this.xMinusButton, 3, 1);
             this.xTableLayoutPanel.Controls.Add(this.xStepsNumericUpDown, 1, 1);
             this.xTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xTableLayoutPanel.Location = new System.Drawing.Point(3, 21);
+            this.xTableLayoutPanel.Location = new System.Drawing.Point(3, 17);
             this.xTableLayoutPanel.Name = "xTableLayoutPanel";
             this.xTableLayoutPanel.RowCount = 3;
             this.xTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.xTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.xTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.xTableLayoutPanel.Size = new System.Drawing.Size(325, 137);
+            this.xTableLayoutPanel.Size = new System.Drawing.Size(325, 142);
             this.xTableLayoutPanel.TabIndex = 0;
             // 
             // xVelocityLabel
@@ -204,7 +204,7 @@
             this.xVelocityLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xVelocityLabel.Location = new System.Drawing.Point(3, 0);
             this.xVelocityLabel.Name = "xVelocityLabel";
-            this.xVelocityLabel.Size = new System.Drawing.Size(91, 35);
+            this.xVelocityLabel.Size = new System.Drawing.Size(91, 38);
             this.xVelocityLabel.TabIndex = 0;
             this.xVelocityLabel.Text = "Velocity";
             this.xVelocityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -216,7 +216,7 @@
             this.xStepsLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xStepsLabel.Location = new System.Drawing.Point(100, 0);
             this.xStepsLabel.Name = "xStepsLabel";
-            this.xStepsLabel.Size = new System.Drawing.Size(91, 35);
+            this.xStepsLabel.Size = new System.Drawing.Size(91, 38);
             this.xStepsLabel.TabIndex = 1;
             this.xStepsLabel.Text = "Steps";
             this.xStepsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -225,7 +225,7 @@
             // 
             this.xVelocityNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xVelocityNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xVelocityNumericUpDown.Location = new System.Drawing.Point(3, 38);
+            this.xVelocityNumericUpDown.Location = new System.Drawing.Point(3, 41);
             this.xVelocityNumericUpDown.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -233,7 +233,7 @@
             0});
             this.xVelocityNumericUpDown.MaximumSize = new System.Drawing.Size(150, 0);
             this.xVelocityNumericUpDown.Name = "xVelocityNumericUpDown";
-            this.xVelocityNumericUpDown.Size = new System.Drawing.Size(91, 27);
+            this.xVelocityNumericUpDown.Size = new System.Drawing.Size(91, 23);
             this.xVelocityNumericUpDown.TabIndex = 2;
             this.xVelocityNumericUpDown.Value = new decimal(new int[] {
             1000,
@@ -245,7 +245,7 @@
             // 
             this.xPlusButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPlusButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xPlusButton.Location = new System.Drawing.Point(197, 38);
+            this.xPlusButton.Location = new System.Drawing.Point(197, 41);
             this.xPlusButton.MaximumSize = new System.Drawing.Size(60, 60);
             this.xPlusButton.Name = "xPlusButton";
             this.xPlusButton.Size = new System.Drawing.Size(59, 60);
@@ -258,7 +258,7 @@
             // 
             this.xMinusButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xMinusButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xMinusButton.Location = new System.Drawing.Point(262, 38);
+            this.xMinusButton.Location = new System.Drawing.Point(262, 41);
             this.xMinusButton.MaximumSize = new System.Drawing.Size(60, 60);
             this.xMinusButton.Name = "xMinusButton";
             this.xMinusButton.Size = new System.Drawing.Size(60, 60);
@@ -271,7 +271,7 @@
             // 
             this.xStepsNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xStepsNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xStepsNumericUpDown.Location = new System.Drawing.Point(101, 38);
+            this.xStepsNumericUpDown.Location = new System.Drawing.Point(101, 41);
             this.xStepsNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 3, 3);
             this.xStepsNumericUpDown.Maximum = new decimal(new int[] {
             500000,
@@ -280,7 +280,7 @@
             0});
             this.xStepsNumericUpDown.MaximumSize = new System.Drawing.Size(150, 0);
             this.xStepsNumericUpDown.Name = "xStepsNumericUpDown";
-            this.xStepsNumericUpDown.Size = new System.Drawing.Size(90, 27);
+            this.xStepsNumericUpDown.Size = new System.Drawing.Size(90, 23);
             this.xStepsNumericUpDown.TabIndex = 3;
             this.xStepsNumericUpDown.ThousandsSeparator = true;
             // 
@@ -288,9 +288,9 @@
             // 
             this.yGroupBox.Controls.Add(this.yTableLayoutPanel);
             this.yGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.yGroupBox.Location = new System.Drawing.Point(3, 207);
+            this.yGroupBox.Location = new System.Drawing.Point(3, 209);
             this.yGroupBox.Name = "yGroupBox";
-            this.yGroupBox.Size = new System.Drawing.Size(331, 161);
+            this.yGroupBox.Size = new System.Drawing.Size(331, 162);
             this.yGroupBox.TabIndex = 1;
             this.yGroupBox.TabStop = false;
             this.yGroupBox.Text = "Y axis";
@@ -309,13 +309,13 @@
             this.yTableLayoutPanel.Controls.Add(this.yMinusButton, 3, 1);
             this.yTableLayoutPanel.Controls.Add(this.yStepsNumericUpDown, 1, 1);
             this.yTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.yTableLayoutPanel.Location = new System.Drawing.Point(3, 21);
+            this.yTableLayoutPanel.Location = new System.Drawing.Point(3, 17);
             this.yTableLayoutPanel.Name = "yTableLayoutPanel";
             this.yTableLayoutPanel.RowCount = 3;
             this.yTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
             this.yTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.yTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
-            this.yTableLayoutPanel.Size = new System.Drawing.Size(325, 137);
+            this.yTableLayoutPanel.Size = new System.Drawing.Size(325, 142);
             this.yTableLayoutPanel.TabIndex = 1;
             // 
             // yVelocityLabel
@@ -325,7 +325,7 @@
             this.yVelocityLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yVelocityLabel.Location = new System.Drawing.Point(3, 0);
             this.yVelocityLabel.Name = "yVelocityLabel";
-            this.yVelocityLabel.Size = new System.Drawing.Size(91, 26);
+            this.yVelocityLabel.Size = new System.Drawing.Size(91, 28);
             this.yVelocityLabel.TabIndex = 0;
             this.yVelocityLabel.Text = "Velocity";
             this.yVelocityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -337,7 +337,7 @@
             this.yStepsLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yStepsLabel.Location = new System.Drawing.Point(100, 0);
             this.yStepsLabel.Name = "yStepsLabel";
-            this.yStepsLabel.Size = new System.Drawing.Size(91, 26);
+            this.yStepsLabel.Size = new System.Drawing.Size(91, 28);
             this.yStepsLabel.TabIndex = 1;
             this.yStepsLabel.Text = "Steps";
             this.yStepsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -346,7 +346,7 @@
             // 
             this.yVelocityNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.yVelocityNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yVelocityNumericUpDown.Location = new System.Drawing.Point(3, 29);
+            this.yVelocityNumericUpDown.Location = new System.Drawing.Point(3, 31);
             this.yVelocityNumericUpDown.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -354,7 +354,7 @@
             0});
             this.yVelocityNumericUpDown.MaximumSize = new System.Drawing.Size(150, 0);
             this.yVelocityNumericUpDown.Name = "yVelocityNumericUpDown";
-            this.yVelocityNumericUpDown.Size = new System.Drawing.Size(91, 27);
+            this.yVelocityNumericUpDown.Size = new System.Drawing.Size(91, 23);
             this.yVelocityNumericUpDown.TabIndex = 2;
             this.yVelocityNumericUpDown.Value = new decimal(new int[] {
             1000,
@@ -366,7 +366,7 @@
             // 
             this.yPlusButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.yPlusButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yPlusButton.Location = new System.Drawing.Point(197, 29);
+            this.yPlusButton.Location = new System.Drawing.Point(197, 31);
             this.yPlusButton.MaximumSize = new System.Drawing.Size(60, 60);
             this.yPlusButton.Name = "yPlusButton";
             this.yPlusButton.Size = new System.Drawing.Size(59, 60);
@@ -379,7 +379,7 @@
             // 
             this.yMinusButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.yMinusButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yMinusButton.Location = new System.Drawing.Point(262, 29);
+            this.yMinusButton.Location = new System.Drawing.Point(262, 31);
             this.yMinusButton.MaximumSize = new System.Drawing.Size(60, 60);
             this.yMinusButton.Name = "yMinusButton";
             this.yMinusButton.Size = new System.Drawing.Size(60, 60);
@@ -392,7 +392,7 @@
             // 
             this.yStepsNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.yStepsNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yStepsNumericUpDown.Location = new System.Drawing.Point(100, 29);
+            this.yStepsNumericUpDown.Location = new System.Drawing.Point(100, 31);
             this.yStepsNumericUpDown.Maximum = new decimal(new int[] {
             500000,
             0,
@@ -400,7 +400,7 @@
             0});
             this.yStepsNumericUpDown.MaximumSize = new System.Drawing.Size(150, 0);
             this.yStepsNumericUpDown.Name = "yStepsNumericUpDown";
-            this.yStepsNumericUpDown.Size = new System.Drawing.Size(91, 27);
+            this.yStepsNumericUpDown.Size = new System.Drawing.Size(91, 23);
             this.yStepsNumericUpDown.TabIndex = 3;
             this.yStepsNumericUpDown.ThousandsSeparator = true;
             // 
@@ -409,9 +409,9 @@
             this.zGroupBox.Controls.Add(this.zTableLayoutPanel);
             this.zGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.zGroupBox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zGroupBox.Location = new System.Drawing.Point(3, 374);
+            this.zGroupBox.Location = new System.Drawing.Point(3, 377);
             this.zGroupBox.Name = "zGroupBox";
-            this.zGroupBox.Size = new System.Drawing.Size(331, 162);
+            this.zGroupBox.Size = new System.Drawing.Size(331, 163);
             this.zGroupBox.TabIndex = 2;
             this.zGroupBox.TabStop = false;
             this.zGroupBox.Text = "Z axis";
@@ -430,13 +430,13 @@
             this.zTableLayoutPanel.Controls.Add(this.zMinusButton, 3, 1);
             this.zTableLayoutPanel.Controls.Add(this.zStepsNumericUpDown, 1, 1);
             this.zTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.zTableLayoutPanel.Location = new System.Drawing.Point(3, 21);
+            this.zTableLayoutPanel.Location = new System.Drawing.Point(3, 17);
             this.zTableLayoutPanel.Name = "zTableLayoutPanel";
             this.zTableLayoutPanel.RowCount = 3;
             this.zTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.zTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.zTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.zTableLayoutPanel.Size = new System.Drawing.Size(325, 138);
+            this.zTableLayoutPanel.Size = new System.Drawing.Size(325, 143);
             this.zTableLayoutPanel.TabIndex = 1;
             // 
             // zVelocityLabel
@@ -446,7 +446,7 @@
             this.zVelocityLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.zVelocityLabel.Location = new System.Drawing.Point(3, 0);
             this.zVelocityLabel.Name = "zVelocityLabel";
-            this.zVelocityLabel.Size = new System.Drawing.Size(91, 36);
+            this.zVelocityLabel.Size = new System.Drawing.Size(91, 38);
             this.zVelocityLabel.TabIndex = 0;
             this.zVelocityLabel.Text = "Velocity";
             this.zVelocityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -458,7 +458,7 @@
             this.zStepsLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.zStepsLabel.Location = new System.Drawing.Point(100, 0);
             this.zStepsLabel.Name = "zStepsLabel";
-            this.zStepsLabel.Size = new System.Drawing.Size(91, 36);
+            this.zStepsLabel.Size = new System.Drawing.Size(91, 38);
             this.zStepsLabel.TabIndex = 1;
             this.zStepsLabel.Text = "Steps";
             this.zStepsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -466,7 +466,8 @@
             // zVelocityNumericUpDown
             // 
             this.zVelocityNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.zVelocityNumericUpDown.Location = new System.Drawing.Point(3, 39);
+            this.zVelocityNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.zVelocityNumericUpDown.Location = new System.Drawing.Point(3, 41);
             this.zVelocityNumericUpDown.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -474,7 +475,7 @@
             0});
             this.zVelocityNumericUpDown.MaximumSize = new System.Drawing.Size(150, 0);
             this.zVelocityNumericUpDown.Name = "zVelocityNumericUpDown";
-            this.zVelocityNumericUpDown.Size = new System.Drawing.Size(91, 25);
+            this.zVelocityNumericUpDown.Size = new System.Drawing.Size(91, 23);
             this.zVelocityNumericUpDown.TabIndex = 2;
             this.zVelocityNumericUpDown.Value = new decimal(new int[] {
             1000,
@@ -486,7 +487,7 @@
             // 
             this.zPlusButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.zPlusButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zPlusButton.Location = new System.Drawing.Point(197, 39);
+            this.zPlusButton.Location = new System.Drawing.Point(197, 41);
             this.zPlusButton.MaximumSize = new System.Drawing.Size(60, 60);
             this.zPlusButton.Name = "zPlusButton";
             this.zPlusButton.Size = new System.Drawing.Size(59, 60);
@@ -499,7 +500,7 @@
             // 
             this.zMinusButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.zMinusButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zMinusButton.Location = new System.Drawing.Point(262, 39);
+            this.zMinusButton.Location = new System.Drawing.Point(262, 41);
             this.zMinusButton.MaximumSize = new System.Drawing.Size(60, 60);
             this.zMinusButton.Name = "zMinusButton";
             this.zMinusButton.Size = new System.Drawing.Size(60, 60);
@@ -511,7 +512,8 @@
             // zStepsNumericUpDown
             // 
             this.zStepsNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.zStepsNumericUpDown.Location = new System.Drawing.Point(100, 39);
+            this.zStepsNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.zStepsNumericUpDown.Location = new System.Drawing.Point(100, 41);
             this.zStepsNumericUpDown.Maximum = new decimal(new int[] {
             500000,
             0,
@@ -519,7 +521,7 @@
             0});
             this.zStepsNumericUpDown.MaximumSize = new System.Drawing.Size(150, 0);
             this.zStepsNumericUpDown.Name = "zStepsNumericUpDown";
-            this.zStepsNumericUpDown.Size = new System.Drawing.Size(91, 25);
+            this.zStepsNumericUpDown.Size = new System.Drawing.Size(91, 23);
             this.zStepsNumericUpDown.TabIndex = 3;
             // 
             // stageLabel
@@ -529,7 +531,7 @@
             this.stageLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stageLabel.Location = new System.Drawing.Point(3, 0);
             this.stageLabel.Name = "stageLabel";
-            this.stageLabel.Size = new System.Drawing.Size(331, 37);
+            this.stageLabel.Size = new System.Drawing.Size(331, 38);
             this.stageLabel.TabIndex = 4;
             this.stageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -546,24 +548,23 @@
             // 
             // fiberControlTableLayoutPanel
             // 
-            this.fiberControlTableLayoutPanel.ColumnCount = 4;
-            this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.fiberControlTableLayoutPanel.ColumnCount = 3;
+            this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.fiberControlTableLayoutPanel.Controls.Add(this.jogLabel, 0, 0);
-            this.fiberControlTableLayoutPanel.Controls.Add(this.jogSizeTextBox, 0, 1);
-            this.fiberControlTableLayoutPanel.Controls.Add(this.upButton, 2, 1);
-            this.fiberControlTableLayoutPanel.Controls.Add(this.downButton, 3, 1);
-            this.fiberControlTableLayoutPanel.Controls.Add(this.fiberLabel, 2, 0);
-            this.fiberControlTableLayoutPanel.Controls.Add(this.setButton, 1, 1);
+            this.fiberControlTableLayoutPanel.Controls.Add(this.upButton, 1, 1);
+            this.fiberControlTableLayoutPanel.Controls.Add(this.downButton, 2, 1);
+            this.fiberControlTableLayoutPanel.Controls.Add(this.fiberLabel, 1, 0);
+            this.fiberControlTableLayoutPanel.Controls.Add(this.jogSizeNumericUpDown, 0, 1);
             this.fiberControlTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fiberControlTableLayoutPanel.Location = new System.Drawing.Point(3, 21);
+            this.fiberControlTableLayoutPanel.Location = new System.Drawing.Point(3, 17);
             this.fiberControlTableLayoutPanel.Name = "fiberControlTableLayoutPanel";
             this.fiberControlTableLayoutPanel.RowCount = 2;
             this.fiberControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.fiberControlTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.fiberControlTableLayoutPanel.Size = new System.Drawing.Size(337, 91);
+            this.fiberControlTableLayoutPanel.Size = new System.Drawing.Size(337, 95);
             this.fiberControlTableLayoutPanel.TabIndex = 0;
             // 
             // jogLabel
@@ -573,27 +574,15 @@
             this.jogLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jogLabel.Location = new System.Drawing.Point(3, 0);
             this.jogLabel.Name = "jogLabel";
-            this.jogLabel.Size = new System.Drawing.Size(128, 20);
+            this.jogLabel.Size = new System.Drawing.Size(196, 15);
             this.jogLabel.TabIndex = 0;
             this.jogLabel.Text = "Jog size [mm]";
             this.jogLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // jogSizeTextBox
-            // 
-            this.jogSizeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jogSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jogSizeTextBox.Location = new System.Drawing.Point(3, 23);
-            this.jogSizeTextBox.Name = "jogSizeTextBox";
-            this.jogSizeTextBox.Size = new System.Drawing.Size(128, 27);
-            this.jogSizeTextBox.TabIndex = 1;
-            this.jogSizeTextBox.Text = "0.001";
-            this.jogSizeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.jogSizeTextBox.TextChanged += new System.EventHandler(this.jogSizeTextBox_TextChanged);
-            // 
             // upButton
             // 
             this.upButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.upButton.Location = new System.Drawing.Point(204, 23);
+            this.upButton.Location = new System.Drawing.Point(205, 18);
             this.upButton.MaximumSize = new System.Drawing.Size(60, 60);
             this.upButton.Name = "upButton";
             this.upButton.Size = new System.Drawing.Size(60, 60);
@@ -605,7 +594,7 @@
             // downButton
             // 
             this.downButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.downButton.Location = new System.Drawing.Point(271, 23);
+            this.downButton.Location = new System.Drawing.Point(272, 18);
             this.downButton.MaximumSize = new System.Drawing.Size(60, 60);
             this.downButton.Name = "downButton";
             this.downButton.Size = new System.Drawing.Size(60, 60);
@@ -620,10 +609,31 @@
             this.fiberControlTableLayoutPanel.SetColumnSpan(this.fiberLabel, 2);
             this.fiberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fiberLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fiberLabel.Location = new System.Drawing.Point(204, 0);
+            this.fiberLabel.Location = new System.Drawing.Point(205, 0);
             this.fiberLabel.Name = "fiberLabel";
-            this.fiberLabel.Size = new System.Drawing.Size(130, 20);
+            this.fiberLabel.Size = new System.Drawing.Size(129, 15);
             this.fiberLabel.TabIndex = 4;
+            // 
+            // jogSizeNumericUpDown
+            // 
+            this.jogSizeNumericUpDown.DecimalPlaces = 3;
+            this.jogSizeNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jogSizeNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogSizeNumericUpDown.Location = new System.Drawing.Point(3, 18);
+            this.jogSizeNumericUpDown.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.jogSizeNumericUpDown.Name = "jogSizeNumericUpDown";
+            this.jogSizeNumericUpDown.Size = new System.Drawing.Size(196, 23);
+            this.jogSizeNumericUpDown.TabIndex = 5;
+            this.jogSizeNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.jogSizeNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            196608});
             // 
             // cameraGroupBox
             // 
@@ -646,12 +656,12 @@
             this.cameraTableLayoutPanel.Controls.Add(this.captureButton, 1, 0);
             this.cameraTableLayoutPanel.Controls.Add(this.cameraLabel, 2, 0);
             this.cameraTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cameraTableLayoutPanel.Location = new System.Drawing.Point(3, 21);
+            this.cameraTableLayoutPanel.Location = new System.Drawing.Point(3, 17);
             this.cameraTableLayoutPanel.Name = "cameraTableLayoutPanel";
             this.cameraTableLayoutPanel.RowCount = 2;
             this.cameraTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.cameraTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.cameraTableLayoutPanel.Size = new System.Drawing.Size(337, 91);
+            this.cameraTableLayoutPanel.Size = new System.Drawing.Size(337, 95);
             this.cameraTableLayoutPanel.TabIndex = 0;
             // 
             // liveViewButton
@@ -659,7 +669,7 @@
             this.liveViewButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.liveViewButton.Location = new System.Drawing.Point(3, 3);
             this.liveViewButton.Name = "liveViewButton";
-            this.liveViewButton.Size = new System.Drawing.Size(106, 30);
+            this.liveViewButton.Size = new System.Drawing.Size(106, 32);
             this.liveViewButton.TabIndex = 0;
             this.liveViewButton.Text = "Live View";
             this.liveViewButton.UseVisualStyleBackColor = true;
@@ -670,7 +680,7 @@
             this.captureButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.captureButton.Location = new System.Drawing.Point(115, 3);
             this.captureButton.Name = "captureButton";
-            this.captureButton.Size = new System.Drawing.Size(106, 30);
+            this.captureButton.Size = new System.Drawing.Size(106, 32);
             this.captureButton.TabIndex = 1;
             this.captureButton.Text = "Capture";
             this.captureButton.UseVisualStyleBackColor = true;
@@ -683,7 +693,7 @@
             this.cameraLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cameraLabel.Location = new System.Drawing.Point(227, 0);
             this.cameraLabel.Name = "cameraLabel";
-            this.cameraLabel.Size = new System.Drawing.Size(107, 36);
+            this.cameraLabel.Size = new System.Drawing.Size(107, 38);
             this.cameraLabel.TabIndex = 2;
             this.cameraLabel.Text = "No camera";
             this.cameraLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -699,19 +709,9 @@
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
-            // setButton
-            // 
-            this.setButton.Location = new System.Drawing.Point(137, 23);
-            this.setButton.Name = "setButton";
-            this.setButton.Size = new System.Drawing.Size(61, 27);
-            this.setButton.TabIndex = 5;
-            this.setButton.Text = "Set";
-            this.setButton.UseVisualStyleBackColor = true;
-            this.setButton.Click += new System.EventHandler(this.setButton_Click);
-            // 
             // SlappingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1244, 811);
             this.Controls.Add(this.splitControlsImageContainer);
@@ -745,6 +745,7 @@
             this.fiberControlGroupBox.ResumeLayout(false);
             this.fiberControlTableLayoutPanel.ResumeLayout(false);
             this.fiberControlTableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jogSizeNumericUpDown)).EndInit();
             this.cameraGroupBox.ResumeLayout(false);
             this.cameraTableLayoutPanel.ResumeLayout(false);
             this.cameraTableLayoutPanel.PerformLayout();
@@ -788,7 +789,6 @@
         private System.Windows.Forms.TableLayoutPanel fiberControlTableLayoutPanel;
         private System.Windows.Forms.GroupBox cameraGroupBox;
         private System.Windows.Forms.Label jogLabel;
-        private System.Windows.Forms.TextBox jogSizeTextBox;
         private System.Windows.Forms.Button upButton;
         private System.Windows.Forms.Button downButton;
         private System.Windows.Forms.TableLayoutPanel cameraTableLayoutPanel;
@@ -797,7 +797,7 @@
         private System.Windows.Forms.Label cameraLabel;
         private System.Windows.Forms.Label stageLabel;
         private System.Windows.Forms.Label fiberLabel;
-        private System.Windows.Forms.Button setButton;
+        private System.Windows.Forms.NumericUpDown jogSizeNumericUpDown;
     }
 }
 

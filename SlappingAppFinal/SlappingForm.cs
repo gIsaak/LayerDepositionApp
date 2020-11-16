@@ -329,7 +329,7 @@ namespace SlappingAppFinal
 
         private void ToggleFiberButtons(bool enable)
         {
-            this.jogSizeTextBox.Enabled = enable;
+            //this.jogSizeTextBox.Enabled = enable;
             this.upButton.Enabled = enable;
             this.downButton.Enabled = enable;
             return;
@@ -341,13 +341,23 @@ namespace SlappingAppFinal
         {
             try
             {
-                // Throw exeption if it takes more than 5s to jog
-                _kCubeDCServoMotor.MoveJog(MotorDirection.Backward, 3000);
-                return;
+                // Try setting jog step size
+                _kCubeDCServoMotor.SetJogStepSize(jogSizeNumericUpDown.Value);
+                try
+                {
+                    // Throw exeption if it takes more than 5s to jog
+                    _kCubeDCServoMotor.MoveJog(MotorDirection.Backward, 3000);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to move jog\n" + ex);
+                    return;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to move jog" + ex);
+                MessageBox.Show("Failed to set jog step\n" + ex);
                 return;
             }
         }
@@ -356,36 +366,25 @@ namespace SlappingAppFinal
         {
             try
             {
-                // Throw exeption if it takes more than 5s to jog
-                _kCubeDCServoMotor.MoveJog(MotorDirection.Forward, 3000);
-                return;
+                // Try setting jog step size
+                _kCubeDCServoMotor.SetJogStepSize(jogSizeNumericUpDown.Value);
+                try
+                {
+                    // Throw exeption if it takes more than 5s to jog
+                    _kCubeDCServoMotor.MoveJog(MotorDirection.Forward, 3000);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to move jog\n" + ex);
+                    return;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to move jog" + ex);
+                MessageBox.Show("Failed to set jog step\n" + ex);
                 return;
             }
-        }
-
-        private void setButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                jogSizeStepFromTextBox(jogSizeTextBox.Text);
-                // Chage font to bold when set
-                jogSizeTextBox.Font = new Font(jogSizeTextBox.Font, FontStyle.Bold);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to set jog step size" + ex);
-                return;
-            }
-        }
-        
-        private void jogSizeTextBox_TextChanged(object sender, EventArgs e)
-        {
-            // Remove bold when set is not pressed after text is modified
-            jogSizeTextBox.Font = new Font(jogSizeTextBox.Font, FontStyle.Regular);
         }
         #endregion
     }
