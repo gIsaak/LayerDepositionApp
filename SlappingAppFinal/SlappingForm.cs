@@ -372,6 +372,7 @@ namespace SlappingAppFinal
             try
             {
                 jogSizeStepFromTextBox(jogSizeTextBox.Text);
+                // Chage font to bold when set
                 jogSizeTextBox.Font = new Font(jogSizeTextBox.Font, FontStyle.Bold);
             }
             catch (Exception ex)
@@ -379,6 +380,12 @@ namespace SlappingAppFinal
                 MessageBox.Show("Failed to set jog step size" + ex);
                 return;
             }
+        }
+        
+        private void jogSizeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            // Remove bold when set is not pressed after text is modified
+            jogSizeTextBox.Font = new Font(jogSizeTextBox.Font, FontStyle.Regular);
         }
         #endregion
     }

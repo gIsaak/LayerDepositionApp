@@ -588,6 +588,7 @@
             this.jogSizeTextBox.TabIndex = 1;
             this.jogSizeTextBox.Text = "0.001";
             this.jogSizeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.jogSizeTextBox.TextChanged += new System.EventHandler(this.jogSizeTextBox_TextChanged);
             // 
             // upButton
             // 
