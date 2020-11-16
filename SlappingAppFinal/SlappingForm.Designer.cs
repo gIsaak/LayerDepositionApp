@@ -620,7 +620,7 @@
             // 
             this.jogSizeNumericUpDown.DecimalPlaces = 3;
             this.jogSizeNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jogSizeNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogSizeNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jogSizeNumericUpDown.Location = new System.Drawing.Point(3, 18);
             this.jogSizeNumericUpDown.Maximum = new decimal(new int[] {
             5,
