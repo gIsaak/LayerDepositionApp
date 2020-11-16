@@ -70,6 +70,7 @@
             this.captureButton = new System.Windows.Forms.Button();
             this.cameraLabel = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.setButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitControlsImageContainer)).BeginInit();
             this.splitControlsImageContainer.Panel1.SuspendLayout();
             this.splitControlsImageContainer.Panel2.SuspendLayout();
@@ -548,16 +549,17 @@
             // 
             // fiberControlTableLayoutPanel
             // 
-            this.fiberControlTableLayoutPanel.ColumnCount = 3;
-            this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.fiberControlTableLayoutPanel.ColumnCount = 4;
+            this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.fiberControlTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.fiberControlTableLayoutPanel.Controls.Add(this.jogLabel, 0, 0);
-            this.fiberControlTableLayoutPanel.Controls.Add(this.upButton, 1, 1);
-            this.fiberControlTableLayoutPanel.Controls.Add(this.downButton, 2, 1);
-            this.fiberControlTableLayoutPanel.Controls.Add(this.fiberLabel, 1, 0);
+            this.fiberControlTableLayoutPanel.Controls.Add(this.upButton, 2, 1);
+            this.fiberControlTableLayoutPanel.Controls.Add(this.downButton, 3, 1);
+            this.fiberControlTableLayoutPanel.Controls.Add(this.fiberLabel, 2, 0);
             this.fiberControlTableLayoutPanel.Controls.Add(this.jogSizeNumericUpDown, 0, 1);
+            this.fiberControlTableLayoutPanel.Controls.Add(this.setButton, 1, 1);
             this.fiberControlTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fiberControlTableLayoutPanel.Location = new System.Drawing.Point(3, 17);
             this.fiberControlTableLayoutPanel.Name = "fiberControlTableLayoutPanel";
@@ -574,7 +576,7 @@
             this.jogLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jogLabel.Location = new System.Drawing.Point(3, 0);
             this.jogLabel.Name = "jogLabel";
-            this.jogLabel.Size = new System.Drawing.Size(196, 15);
+            this.jogLabel.Size = new System.Drawing.Size(128, 15);
             this.jogLabel.TabIndex = 0;
             this.jogLabel.Text = "Jog size [mm]";
             this.jogLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -582,7 +584,7 @@
             // upButton
             // 
             this.upButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.upButton.Location = new System.Drawing.Point(205, 18);
+            this.upButton.Location = new System.Drawing.Point(204, 18);
             this.upButton.MaximumSize = new System.Drawing.Size(60, 60);
             this.upButton.Name = "upButton";
             this.upButton.Size = new System.Drawing.Size(60, 60);
@@ -594,7 +596,7 @@
             // downButton
             // 
             this.downButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.downButton.Location = new System.Drawing.Point(272, 18);
+            this.downButton.Location = new System.Drawing.Point(271, 18);
             this.downButton.MaximumSize = new System.Drawing.Size(60, 60);
             this.downButton.Name = "downButton";
             this.downButton.Size = new System.Drawing.Size(60, 60);
@@ -609,16 +611,16 @@
             this.fiberControlTableLayoutPanel.SetColumnSpan(this.fiberLabel, 2);
             this.fiberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fiberLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fiberLabel.Location = new System.Drawing.Point(205, 0);
+            this.fiberLabel.Location = new System.Drawing.Point(204, 0);
             this.fiberLabel.Name = "fiberLabel";
-            this.fiberLabel.Size = new System.Drawing.Size(129, 15);
+            this.fiberLabel.Size = new System.Drawing.Size(130, 15);
             this.fiberLabel.TabIndex = 4;
             // 
             // jogSizeNumericUpDown
             // 
             this.jogSizeNumericUpDown.DecimalPlaces = 3;
             this.jogSizeNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jogSizeNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jogSizeNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jogSizeNumericUpDown.Location = new System.Drawing.Point(3, 18);
             this.jogSizeNumericUpDown.Maximum = new decimal(new int[] {
             5,
@@ -626,7 +628,7 @@
             0,
             0});
             this.jogSizeNumericUpDown.Name = "jogSizeNumericUpDown";
-            this.jogSizeNumericUpDown.Size = new System.Drawing.Size(196, 23);
+            this.jogSizeNumericUpDown.Size = new System.Drawing.Size(128, 23);
             this.jogSizeNumericUpDown.TabIndex = 5;
             this.jogSizeNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.jogSizeNumericUpDown.Value = new decimal(new int[] {
@@ -634,6 +636,7 @@
             0,
             0,
             196608});
+            this.jogSizeNumericUpDown.ValueChanged += new System.EventHandler(this.jogSizeNumericUpDown_ValueChanged);
             // 
             // cameraGroupBox
             // 
@@ -708,6 +711,16 @@
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
+            // 
+            // setButton
+            // 
+            this.setButton.Location = new System.Drawing.Point(137, 18);
+            this.setButton.Name = "setButton";
+            this.setButton.Size = new System.Drawing.Size(61, 23);
+            this.setButton.TabIndex = 6;
+            this.setButton.Text = "Set";
+            this.setButton.UseVisualStyleBackColor = true;
+            this.setButton.Click += new System.EventHandler(this.setButton_Click);
             // 
             // SlappingForm
             // 
@@ -798,6 +811,7 @@
         private System.Windows.Forms.Label stageLabel;
         private System.Windows.Forms.Label fiberLabel;
         private System.Windows.Forms.NumericUpDown jogSizeNumericUpDown;
+        private System.Windows.Forms.Button setButton;
     }
 }
 

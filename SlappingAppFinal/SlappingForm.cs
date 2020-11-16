@@ -264,20 +264,6 @@ namespace SlappingAppFinal
         #endregion
 
         #region Fiber control functions
-        private void jogSizeStepFromTextBox(string jogSizeText)
-        {
-            decimal step;
-            if (Decimal.TryParse(jogSizeText, out step))
-            {
-                _kCubeDCServoMotor.SetJogStepSize(step);
-                return;
-            }
-            else
-            {
-                MessageBox.Show("Invalid jog step size");
-                return;
-            }
-        }
 
         private void initializeFiber(string serial)
         {
@@ -339,53 +325,65 @@ namespace SlappingAppFinal
         #region Fiber controls
         private void upButton_Click(object sender, EventArgs e)
         {
+            ToggleFiberButtons(false);
             try
             {
-                // Try setting jog step size
-                _kCubeDCServoMotor.SetJogStepSize(jogSizeNumericUpDown.Value);
-                try
-                {
-                    // Throw exeption if it takes more than 5s to jog
-                    _kCubeDCServoMotor.MoveJog(MotorDirection.Backward, 3000);
-                    return;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Failed to move jog\n" + ex);
-                    return;
-                }
+                // Throw exeption if it takes more than 5s to jog
+                _kCubeDCServoMotor.MoveJog(MotorDirection.Backward, 3000);
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to set jog step\n" + ex);
-                return;
+                MessageBox.Show("Failed to move jog\n" + ex);
             }
+            finally
+            {
+                ToggleFiberButtons(true);
+            }
+            return;
         }
 
         private void downButton_Click(object sender, EventArgs e)
         {
+            ToggleFiberButtons(false);
             try
             {
-                // Try setting jog step size
+                // Throw exeption if it takes more than 5s to jog
+                _kCubeDCServoMotor.MoveJog(MotorDirection.Forward, 3000);
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to move jog\n" + ex);
+            }
+            finally
+            {
+                ToggleFiberButtons(true);
+            }
+            return;
+        }
+
+        private void setButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 _kCubeDCServoMotor.SetJogStepSize(jogSizeNumericUpDown.Value);
-                try
-                {
-                    // Throw exeption if it takes more than 5s to jog
-                    _kCubeDCServoMotor.MoveJog(MotorDirection.Forward, 3000);
-                    return;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Failed to move jog\n" + ex);
-                    return;
-                }
+                // Change font style to bold
+                this.jogSizeNumericUpDown.Font = new Font(jogSizeNumericUpDown.Font, FontStyle.Bold);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Failed to set jog step\n" + ex);
-                return;
             }
+            return;
+        }
+
+        private void jogSizeNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            // change font style to regular when not set
+            this.jogSizeNumericUpDown.Font = new Font(jogSizeNumericUpDown.Font, FontStyle.Regular);
         }
         #endregion
+
     }
 }
