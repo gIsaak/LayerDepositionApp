@@ -91,6 +91,7 @@ namespace Drawing
         {
             MouseEventArgs me = (MouseEventArgs)e;
             this.clickedPoint = me.Location;
+            this.mouseTextBox.Text = me.Location.ToString();
             // TODO - WTF is wrong with this
         }
 

@@ -36,6 +36,7 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.trackListBox = new System.Windows.Forms.ListBox();
             this.trackLabel = new System.Windows.Forms.Label();
+            this.mouseTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             this.tableLayoutPanel.Controls.Add(this.clearButton, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.trackListBox, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.trackLabel, 0, 2);
+            this.tableLayoutPanel.Controls.Add(this.mouseTextBox, 0, 3);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -84,7 +86,6 @@
             this.imageBox.Name = "imageBox";
             this.tableLayoutPanel.SetRowSpan(this.imageBox, 4);
             this.imageBox.Size = new System.Drawing.Size(1132, 757);
-            this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imageBox.TabIndex = 2;
             this.imageBox.TabStop = false;
             this.imageBox.Click += new System.EventHandler(this.imageBox_Click);
@@ -132,6 +133,13 @@
             this.trackLabel.Text = "Track";
             this.trackLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // mouseTextBox
+            // 
+            this.mouseTextBox.Location = new System.Drawing.Point(3, 231);
+            this.mouseTextBox.Name = "mouseTextBox";
+            this.mouseTextBox.Size = new System.Drawing.Size(136, 22);
+            this.mouseTextBox.TabIndex = 7;
+            // 
             // DrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -156,6 +164,7 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.ListBox trackListBox;
         private System.Windows.Forms.Label trackLabel;
+        private System.Windows.Forms.TextBox mouseTextBox;
     }
 }
 

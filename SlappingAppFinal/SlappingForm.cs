@@ -24,7 +24,7 @@ namespace SlappingAppFinal
         private NikonDevice device;
         private Timer liveViewTimer;
         // Stage
-        CU30 CU30obj = new CU30();
+        private CU30 CU30obj = new CU30();
         // Fiber
         private KCubeDCServo _kCubeDCServoMotor = null;
 
@@ -274,7 +274,7 @@ namespace SlappingAppFinal
             }
             else
             {
-                MessageBox.Show("Failed to set fiber jog step size");
+                MessageBox.Show("Invalid jog step size");
                 return;
             }
         }
@@ -341,24 +341,13 @@ namespace SlappingAppFinal
         {
             try
             {
-                // Set jog size
-                jogSizeStepFromTextBox(jogSizeTextBox.Text);
-                // Move jog up
-                try
-                {
-                    // Throw exeption if it takes more than 5s to jog
-                    _kCubeDCServoMotor.MoveJog(MotorDirection.Backward, 5000);
-                    return;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Failed to move jog" + ex);
-                    return;
-                }
+                // Throw exeption if it takes more than 5s to jog
+                _kCubeDCServoMotor.MoveJog(MotorDirection.Backward, 3000);
+                return;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to set jog step size" + ex);
+                MessageBox.Show("Failed to move jog" + ex);
                 return;
             }
         }
@@ -367,20 +356,23 @@ namespace SlappingAppFinal
         {
             try
             {
-                // Set jog size
+                // Throw exeption if it takes more than 5s to jog
+                _kCubeDCServoMotor.MoveJog(MotorDirection.Forward, 3000);
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to move jog" + ex);
+                return;
+            }
+        }
+
+        private void setButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 jogSizeStepFromTextBox(jogSizeTextBox.Text);
-                // Move jog up
-                try
-                {
-                    // Throw exeption if it takes more than 5s to jog
-                    _kCubeDCServoMotor.MoveJog(MotorDirection.Forward, 5000);
-                    return;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Failed to move jog" + ex);
-                    return;
-                }
+                jogSizeTextBox.Font = new Font(jogSizeTextBox.Font, FontStyle.Bold);
             }
             catch (Exception ex)
             {
