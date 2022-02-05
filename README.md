@@ -1,6 +1,6 @@
 # Slapping App
 This project offers a single UI to interface all the components
-of the slapping station.
+of the layer deposition (slapping) station in the yellow lab at TU Delft.
 A single Windows Form App groups together the controls
 of the different hardware components in the setup.
 
