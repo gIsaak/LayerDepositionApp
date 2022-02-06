@@ -1,6 +1,7 @@
-# Slapping App
-This project offers a single UI to interface all the components
-of the layer deposition (slapping) station in the yellow lab at TU Delft.
+# Layer Deposition App
+This project was carried out while working at Gröblacher lab at TU Delft
+and it was conceived to offer a single UI to interface all the components
+of the layer deposition (slapping) station in the yellow lab.
 A single Windows Form App groups together the controls
 of the different hardware components in the setup.
 
@@ -12,8 +13,6 @@ The (interfaced) hardware currently in use consists of:
 ## Overview
 The Windows Form App is developed within a Visual Studio solution.
 The Solution contains different Projects that can be run independently.
- 
-
 
 ### Camera (Nikon D5200)
 In order to use the camera it is necessary to download the correct SDK
@@ -43,7 +42,7 @@ CU30.dll needs to be present in the Project Folder.
 
 CU30Interface.cs needs to be added to Project References (or its code pasted into the target project).
 
-Both can be found at
+Both can be found on the slapping local machine at
 
     C:\Program Files\MechonicsStages\Software Controller CU30\CU30_C#_x64(\bin)
 
@@ -63,7 +62,7 @@ only the following are neeeded in the Project Folder
 
 | Filename                                     | Reference     |
 | :------------------------------------------- | :-----------: |
-|  Thorlabs.MotionControl.DeviceManager.dll    |    &#x2610;   |
+| Thorlabs.MotionControl.DeviceManager.dll     |    &#x2610;   |
 | Thorlabs.MotionControl.DeviceManagerCLI.dll  |    &#x2611;   |
 | Thorlabs.MotionControl.GenericMotorCLI.dll   |    &#x2611;   |
 | Thorlabs.MotionControl.KCube.DCServo.dll     |    &#x2610;   |
